@@ -3,10 +3,10 @@ import Image from "next/image";
 
 export const ListItem = ({
   data: { title, iconAddress, iconAlt },
-  onClick,
+  onSelect,
 }: TListItemProps) => {
   return (
-    <div onClick={() => onClick({ title, iconAddress, iconAlt })}>
+    <div onClick={() => onSelect({ title, iconAddress, iconAlt })}>
       <span>{title}</span>
       <Image src={iconAddress} width={20} height={20} alt={iconAlt} />
     </div>

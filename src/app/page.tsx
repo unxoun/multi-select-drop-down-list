@@ -1,6 +1,15 @@
 import { MultiSelectDropDown } from "@/multiSelectDropDown";
-import { Test } from "@/multiSelectDropDown/components/test";
 
 export default function Home() {
-  return <MultiSelectDropDown />;
+  return (
+    <div
+      style={{
+        width: "300px",
+        padding: "10px",
+        border: "1px solid red",
+      }}
+    >
+      <MultiSelectDropDown />
+    </div>
+  );
 }

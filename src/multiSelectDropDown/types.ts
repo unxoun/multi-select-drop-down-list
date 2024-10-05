@@ -1,4 +1,4 @@
-import { ReactNode, RefObject } from "react";
+import { RefObject } from "react";
 
 type THTMLDivElementRef = RefObject<HTMLDivElement>;
 
@@ -10,17 +10,16 @@ export type TListItemData = {
 
 export type TListItemProps = {
   data: TListItemData;
-  onClick: (e: TListItemData) => void;
+  onSelect: (e: TListItemData) => void;
 };
 
 export type TListData = TListItemData[];
 
 export type TListProps = {
-  ref?: THTMLDivElementRef;
   data: TListData;
   onSelect: (e: TListItemData) => void;
 };
 
-export type TUseOpenAndCloseTheListProps = {
+export type TuseOpenAndCloseListProps = {
   ref: THTMLDivElementRef;
 };

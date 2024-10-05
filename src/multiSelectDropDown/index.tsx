@@ -2,13 +2,13 @@
 
 import { useRef, useState } from "react";
 import { useFilterListData } from "./hooks/useFilterListData";
-import { List } from "./components/list";
-import { useOpenAndCloseTheList } from "./hooks/useOpenAndCloseTheList";
+import { List } from "./components/list/list";
+import { useOpenAndCloseList } from "./hooks/useOpenAndCloseList";
 
 export const MultiSelectDropDown = () => {
   const listRef = useRef<HTMLDivElement>(null);
 
-  const { isListOpen, openList } = useOpenAndCloseTheList({
+  const { isListOpen, openList } = useOpenAndCloseList({
     ref: listRef,
   });
 

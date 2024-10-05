@@ -1,15 +1,15 @@
-import { useEffect, useRef, useState } from "react";
-import { TUseOpenAndCloseTheListProps } from "../types";
+import { useEffect, useState } from "react";
+import { TuseOpenAndCloseListProps } from "../types";
 
-export const useOpenAndCloseTheList = ({ref}: TUseOpenAndCloseTheListProps) => {
-
+export const useOpenAndCloseList = ({ ref }: TuseOpenAndCloseListProps) => {
   const [isListOpen, setIsListOpen] = useState(false);
 
   useEffect(() => {
     function handleOutsideClick(event: MouseEvent) {
+      console.log("click");
       if (ref.current && !ref.current.contains(event.target as Node | null)) {
         setIsListOpen(false);
-        console.log('me')
+        console.log("me");
       }
     }
 
