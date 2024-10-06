@@ -1,4 +1,4 @@
-import { TCreateListItem } from "../types";
+import { TCreateListItem, TListItemData } from "../types";
 import { ICON_ADDRESS } from "./staticData";
 
 export const createId = () => Date.now().toString();

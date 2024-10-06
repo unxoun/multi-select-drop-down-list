@@ -1,6 +1,6 @@
-import { FocusEventHandler, RefObject, KeyboardEvent } from "react";
+import { FocusEventHandler, RefObject } from "react";
 
-type TInputOnFocus = FocusEventHandler<HTMLInputElement>;
+export type TInputOnFocus = FocusEventHandler<HTMLInputElement>;
 
 export type TDivRef = RefObject<HTMLDivElement>;
 
@@ -12,7 +12,7 @@ export type TListItemData = {
   isSelected: boolean;
 };
 
-export type TOnListItemSelect = (id: TListItemData["id"]) => void;
+export type TOnListItemSelect = (id: string) => void;
 
 export type TListItemProps = {
   data: TListItemData;
@@ -25,17 +25,12 @@ export type TListProps = {
   isOpen: boolean;
   data: TListData;
   onSelect: TOnListItemSelect;
-  onDismiss: VoidFunction;
 };
 
 export type TInputProps = {
+  isOpen: boolean;
   onFocus: TInputOnFocus;
-  onSubmit: (e: string) => void;
-};
-
-export type TUseOpenAndCloseListProps = {
-  listRef: TDivRef;
-  handleListClose: VoidFunction;
+  onSubmit: (value: string) => void;
 };
 
 export type TCreateListItem = (title: string) => TListItemData;

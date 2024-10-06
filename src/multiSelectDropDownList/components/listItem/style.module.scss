@@ -1,4 +1,4 @@
-$lightblueColor: #f1f4ff;
+$lightBlueColor: #eff3ff;
 
 .listItem {
   display: flex;
@@ -13,11 +13,13 @@ $lightblueColor: #f1f4ff;
   background: white;
 
   &:hover {
-    background: $lightblueColor;
+    background: $lightBlueColor;
   }
 
   .leftSection {
     display: flex;
+    align-items: center;
+    flex-grow: 1;
 
     .title {
       color: #575757;
@@ -29,10 +31,17 @@ $lightblueColor: #f1f4ff;
   }
 
   &.selected {
-    background: $lightblueColor;
+    background: $lightBlueColor;
 
     .title {
       color: #1746be;
     }
+  }
+
+  .selectedIcon {
+    width: 30px;
+    display: flex;
+    justify-content: right;
+    flex-shrink: 0;
   }
 }

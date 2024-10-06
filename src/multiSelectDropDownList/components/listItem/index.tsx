@@ -1,7 +1,7 @@
 import styles from "./style.module.scss";
-import { TListItemProps } from "../../types";
 import Image from "next/image";
-import CheckMarkSVG from "../../icons/check_mark.svg";
+import checkMarkSvg from "../../icons/check_mark.svg";
+import { TListItemProps } from "../../types";
 
 export const ListItem = ({
   data: { id, title, iconAddress, iconAlt, isSelected },
@@ -22,9 +22,11 @@ export const ListItem = ({
           alt={iconAlt}
         />
       </div>
-      {isSelected && (
-        <Image src={CheckMarkSVG} width={20} height={20} alt="selected" />
-      )}
+      <div className={styles.selectedIcon}>
+        {isSelected && (
+          <Image src={checkMarkSvg} width={18} height={18} alt="selected" />
+        )}
+      </div>
     </div>
   );
 };
