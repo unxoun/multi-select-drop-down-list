@@ -1,18 +1,37 @@
-import { ListItem } from "../listItem";
+import styles from './style.module.scss'
+import { ListItem } from "../listItem/listItem";
 import { TListProps } from "../../types";
-import { forwardRef } from "react";
+import { EmptyList } from "../emptyList";
+import { useEffect, useRef } from "react";
 
-const List = forwardRef<HTMLDivElement, TListProps>(
-  ({ data, onSelect }, ref) => {
-    return (
-      <div ref={ref}>
-        {data.map((listItemData, index) => (
-          <ListItem key={index} data={listItemData} onSelect={onSelect} />
-        ))}
+export const List = ({ isOpen, onDismiss, data, onSelect }: TListProps) => {
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // TO DO: remove this
+    function handleOutsideClick(e: MouseEvent) {
+      listRef.current &&
+        !listRef.current.contains(e.target as Node | null) &&
+        onDismiss();
+    }
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [listRef]);
+
+  return (
+    isOpen && (
+      <div ref={listRef} className={styles.list}>
+        {data.length ? (
+          data.map((itemData) => (
+            <ListItem key={itemData.id} data={itemData} onSelect={onSelect} />
+          ))
+        ) : (
+          <EmptyList />
+        )}
       </div>
-    );
-  }
-);
-
-List.displayName = "List";
-export { List };
+    )
+  );
+};

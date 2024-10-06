@@ -1,14 +1,15 @@
-import { TListItemProps } from "../types";
+import { TListItemProps } from "../../types";
 import Image from "next/image";
 
 export const ListItem = ({
-  data: { title, iconAddress, iconAlt },
+  data: { id, title, iconAddress, iconAlt, isSelected },
   onSelect,
 }: TListItemProps) => {
   return (
-    <div onClick={() => onSelect({ title, iconAddress, iconAlt })}>
+    <div onClick={() => onSelect(id)}>
       <span>{title}</span>
       <Image src={iconAddress} width={20} height={20} alt={iconAlt} />
+      {isSelected && <span>*</span>}
     </div>
   );
 };
