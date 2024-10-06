@@ -1,0 +1,38 @@
+$lightblueColor: #f1f4ff;
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 3px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background: white;
+
+  &:hover {
+    background: $lightblueColor;
+  }
+
+  .leftSection {
+    display: flex;
+
+    .title {
+      color: #575757;
+    }
+
+    .icon {
+      margin-left: 5px;
+    }
+  }
+
+  &.selected {
+    background: $lightblueColor;
+
+    .title {
+      color: #1746be;
+    }
+  }
+}
